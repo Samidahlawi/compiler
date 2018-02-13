@@ -3,9 +3,10 @@
 show the resulit of how many word, letter and number.
 It is so easy program (:
 */
-*/OUR TEAM
+/*
+OUR TEAM
  - wayfarer
- -suliman
+ - suliman
 */
 #include <iostream>
 
