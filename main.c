@@ -29,7 +29,7 @@ int main() {
 
 int letter(char arr[]){
     int let=0;
-    for(int x=0;x<arr[x]!='\0';x++){
+    for(int x=0; arr[x] != '\0';x++){
         if((arr[x] >= 'a' && arr[x] <= 'z') || (arr[x] >='A' && arr[x] <= 'Z')){
             let++;
         }
@@ -50,16 +50,23 @@ int num(char arr[]){
 }
 
 int word(char arr[]){
-    int wd = 0;
-    
-        //the last time for deep thinking 
-    int x=1;
-        while(arr[x] != '\0'){
-            if(arr[x] == ' '){
-                wd++;
+    int wd = 0;      
+    //The 'two' char or more is means words
+    for(int ch = 0; arr[ch] != '\0'; ch++){
+        if((arr[ch] >= 'a' && arr[ch] <= 'z') || (arr[ch] >='A' && arr[ch] <= 'Z')){//check if the first char is letter
+            if((arr[ch+1] >= 'a' && arr[ch+1] <= 'z') || (arr[ch+1] >='A' && arr[ch+1] <= 'Z')){ // also check the next letter is char
+            for(int next_ch = ch+1; arr[next_ch] != '\0' ; next_ch++){ // make a loop till reach end or string
+                if(!(arr[next_ch+1] >= 'a' && arr[next_ch+1] <= 'z') && !(arr[next_ch+1] >='A' && arr[next_ch+1] <= 'Z')){ // check if the forward letter is not letter
+                    wd++; //increase the word one 
+                    ch = next_ch+1 ; // start the original loop from end of the this loop
+                    break; // break the loop 
+                }
+                
             }
-            x++;
+          }
         }
+    }
+        
     
     
     return wd;
